@@ -1,0 +1,13 @@
+pandas
+pyarrow
+sqlalchemy
+psycopg2-binary
+python-dotenv
+pydantic
+dbt-postgres
+streamlit
+typer
+rich
+anthropic
+great-expectations
+apache-airflow
