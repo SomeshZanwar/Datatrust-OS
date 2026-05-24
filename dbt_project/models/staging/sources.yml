@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: raw
+    database: datatrust_os
+    schema: raw
+
+    tables:
+      - name: yellow_trips
+        description: "Raw NYC TLC Yellow Taxi trip records loaded from parquet ingestion."
+
+        columns:
+          - name: VendorID
+            description: "Taxi vendor identifier."
+
+          - name: tpep_pickup_datetime
+            description: "Trip pickup timestamp."
+
+          - name: tpep_dropoff_datetime
+            description: "Trip dropoff timestamp."
+
+          - name: fare_amount
+            description: "Base fare amount."
+
+          - name: total_amount
+            description: "Total charged trip amount."
+
+          - name: _ingested_at
+            description: "UTC timestamp when record was ingested."
+
+          - name: _source_file
+            description: "Original parquet filename."
+
+          - name: _source_file_hash
+            description: "SHA256 hash of ingested source file."

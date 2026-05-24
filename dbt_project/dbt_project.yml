@@ -1,0 +1,30 @@
+name: datatrust_os
+version: '1.0.0'
+config-version: 2
+
+profile: datatrust_os
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  datatrust_os:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+    governance:
+      +materialized: table
+
+seeds:
+  datatrust_os:
+    +schema: raw

@@ -1,0 +1,1628 @@
+[0m14:00:52.807615 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CE4971D970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CE497C30B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CE46D94BF0>]}
+
+
+============================== 14:00:52.817930 | e420cbe2-6142-4d4f-b0fc-75b7c0f9f596 ==============================
+[0m14:00:52.817930 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m14:00:52.817930 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'use_colors': 'True', 'invocation_command': 'dbt debug --profiles-dir .', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'D:\\datatrust-os\\dbt_project\\logs'}
+[0m14:00:52.834058 [info ] [MainThread]: dbt version: 1.12.0-b1
+[0m14:00:52.834058 [info ] [MainThread]: python version: 3.12.4
+[0m14:00:52.834058 [info ] [MainThread]: python path: D:\datatrust-os\.venv\Scripts\python.exe
+[0m14:00:52.834058 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m14:00:53.062821 [info ] [MainThread]: Using profiles dir at .
+[0m14:00:53.062821 [info ] [MainThread]: Using profiles.yml file at .\profiles.yml
+[0m14:00:53.064265 [info ] [MainThread]: Using dbt_project.yml file at D:\datatrust-os\dbt_project\dbt_project.yml
+[0m14:00:53.065366 [info ] [MainThread]: adapter type: postgres
+[0m14:00:53.066374 [info ] [MainThread]: adapter version: 1.10.0
+[0m14:00:53.166318 [info ] [MainThread]: Configuration:
+[0m14:00:53.167337 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:00:53.167337 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:00:53.168327 [info ] [MainThread]: Required dependencies:
+[0m14:00:53.168327 [debug] [MainThread]: Executing "git --help"
+[0m14:00:53.214127 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:00:53.214127 [debug] [MainThread]: STDERR: "b''"
+[0m14:00:53.214127 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:00:53.214127 [info ] [MainThread]: Connection:
+[0m14:00:53.214127 [info ] [MainThread]:   host: localhost
+[0m14:00:53.214127 [info ] [MainThread]:   port: 5432
+[0m14:00:53.214127 [info ] [MainThread]:   user: postgres
+[0m14:00:53.223079 [info ] [MainThread]:   database: datatrust_os
+[0m14:00:53.223079 [info ] [MainThread]:   schema: staging
+[0m14:00:53.223079 [info ] [MainThread]:   connect_timeout: 10
+[0m14:00:53.223079 [info ] [MainThread]:   role: None
+[0m14:00:53.223079 [info ] [MainThread]:   search_path: None
+[0m14:00:53.223079 [info ] [MainThread]:   keepalives_idle: 0
+[0m14:00:53.223079 [info ] [MainThread]:   sslmode: None
+[0m14:00:53.223079 [info ] [MainThread]:   sslcert: None
+[0m14:00:53.223079 [info ] [MainThread]:   sslkey: None
+[0m14:00:53.223079 [info ] [MainThread]:   sslrootcert: None
+[0m14:00:53.223079 [info ] [MainThread]:   application_name: dbt
+[0m14:00:53.223079 [info ] [MainThread]:   retries: 1
+[0m14:00:53.223079 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:00:53.656732 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m14:00:57.272049 [debug] [MainThread]: Using postgres connection "debug"
+[0m14:00:57.272049 [debug] [MainThread]: On debug: select 1 as id
+[0m14:00:57.272049 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:00:57.330745 [debug] [MainThread]: SQL status: SELECT 1 in 0.058 seconds
+[0m14:00:57.331753 [debug] [MainThread]: On debug: Close
+[0m14:00:57.331753 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m14:00:57.332752 [info ] [MainThread]: [32mAll checks passed![0m
+[0m14:00:57.333755 [debug] [MainThread]: Command `dbt debug` succeeded at 14:00:57.333755 after 4.67 seconds
+[0m14:00:57.334604 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:00:57.334604 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CE4708B6E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CE4B23D4F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CE49B1B920>]}
+[0m14:00:57.335742 [debug] [MainThread]: Flushing usage events
+[0m14:00:57.708980 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:01:46.762225 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A2144F0080>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A2154460C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A215447830>]}
+
+
+============================== 14:01:46.770128 | fb133d00-8c81-4bb8-9459-ba51c002049a ==============================
+[0m14:01:46.770128 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m14:01:46.770128 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --select stg_yellow_trips --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'D:\\datatrust-os\\dbt_project\\logs'}
+[0m14:01:46.983152 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fb133d00-8c81-4bb8-9459-ba51c002049a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A21676D640>]}
+[0m14:01:47.034949 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fb133d00-8c81-4bb8-9459-ba51c002049a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A21481E150>]}
+[0m14:01:47.034949 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:01:47.314633 [debug] [MainThread]: checksum: 523becabd41852b3e77e6c5e4d41bbe55fa8cd5b7a0468ffa21ba10f6bae2e07, vars: {}, profile: datatrust_os, target: dev, version: 1.12.0b1
+[0m14:01:47.314633 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m14:01:47.316117 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'fb133d00-8c81-4bb8-9459-ba51c002049a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A216A9BB60>]}
+[0m14:01:50.793262 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 4 unused configuration paths:
+- models.datatrust_os.intermediate
+- models.datatrust_os.marts
+- models.datatrust_os.governance
+- seeds.datatrust_os
+[0m14:01:50.821125 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'fb133d00-8c81-4bb8-9459-ba51c002049a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A216B0ED50>]}
+[0m14:01:50.958095 [debug] [MainThread]: Wrote artifact WritableManifest to D:\datatrust-os\dbt_project\target\manifest.json
+[0m14:01:50.989400 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\datatrust-os\dbt_project\target\semantic_manifest.json
+[0m14:01:51.011771 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'fb133d00-8c81-4bb8-9459-ba51c002049a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A21708BFB0>]}
+[0m14:01:51.021494 [info ] [MainThread]: Found 1 model, 1 source, 475 macros
+[0m14:01:51.021494 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fb133d00-8c81-4bb8-9459-ba51c002049a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A21484EBA0>]}
+[0m14:01:51.021494 [info ] [MainThread]: 
+[0m14:01:51.021494 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:01:51.021494 [info ] [MainThread]: 
+[0m14:01:51.021494 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m14:01:51.021494 [debug] [ThreadPool]: Acquiring new postgres connection 'list_datatrust_os'
+[0m14:01:51.160238 [debug] [ThreadPool]: Using postgres connection "list_datatrust_os"
+[0m14:01:51.160238 [debug] [ThreadPool]: On list_datatrust_os: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "list_datatrust_os"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m14:01:51.160238 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:01:51.322322 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.165 seconds
+[0m14:01:51.331643 [debug] [ThreadPool]: On list_datatrust_os: Close
+[0m14:01:51.331643 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datatrust_os, now create_datatrust_os_staging_staging)
+[0m14:01:51.331643 [debug] [ThreadPool]: Creating schema "database: "datatrust_os"
+schema: "staging_staging"
+"
+[0m14:01:51.331643 [debug] [ThreadPool]: Using postgres connection "create_datatrust_os_staging_staging"
+[0m14:01:51.331643 [debug] [ThreadPool]: On create_datatrust_os_staging_staging: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "create_datatrust_os_staging_staging"} */
+create schema if not exists "staging_staging"
+[0m14:01:51.331643 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:01:51.394531 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.056 seconds
+[0m14:01:51.400714 [debug] [ThreadPool]: On create_datatrust_os_staging_staging: COMMIT
+[0m14:01:51.400714 [debug] [ThreadPool]: Using postgres connection "create_datatrust_os_staging_staging"
+[0m14:01:51.400714 [debug] [ThreadPool]: On create_datatrust_os_staging_staging: COMMIT
+[0m14:01:51.400714 [debug] [ThreadPool]: SQL status: COMMIT in 0.001 seconds
+[0m14:01:51.400714 [debug] [ThreadPool]: On create_datatrust_os_staging_staging: Close
+[0m14:01:51.400714 [debug] [ThreadPool]: Acquiring new postgres connection 'list_datatrust_os_staging_staging'
+[0m14:01:51.412184 [debug] [ThreadPool]: Using postgres connection "list_datatrust_os_staging_staging"
+[0m14:01:51.412184 [debug] [ThreadPool]: On list_datatrust_os_staging_staging: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "list_datatrust_os_staging_staging"} */
+select
+      'datatrust_os' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging_staging'
+    union all
+    select
+      'datatrust_os' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging_staging'
+    union all
+    select
+      'datatrust_os' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging_staging'
+  
+[0m14:01:51.412184 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:01:51.476907 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.056 seconds
+[0m14:01:51.478934 [debug] [ThreadPool]: On list_datatrust_os_staging_staging: ROLLBACK
+[0m14:01:51.478934 [debug] [ThreadPool]: On list_datatrust_os_staging_staging: Close
+[0m14:01:51.485734 [debug] [MainThread]: Using postgres connection "master"
+[0m14:01:51.486739 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m14:01:51.486739 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:01:51.536710 [debug] [MainThread]: SQL status: SELECT 0 in 0.052 seconds
+[0m14:01:51.541549 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fb133d00-8c81-4bb8-9459-ba51c002049a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A217031520>]}
+[0m14:01:51.541549 [debug] [MainThread]: On master: ROLLBACK
+[0m14:01:51.543560 [debug] [MainThread]: On master: COMMIT
+[0m14:01:51.543560 [debug] [MainThread]: Using postgres connection "master"
+[0m14:01:51.543560 [debug] [MainThread]: On master: COMMIT
+[0m14:01:51.545696 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m14:01:51.545696 [debug] [MainThread]: On master: Close
+[0m14:01:51.553299 [debug] [Thread-1 (]: Began running node model.datatrust_os.stg_yellow_trips
+[0m14:01:51.553299 [info ] [Thread-1 (]: 1 of 1 START sql view model staging_staging.stg_yellow_trips ................... [RUN]
+[0m14:01:51.553299 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.datatrust_os.stg_yellow_trips'
+[0m14:01:51.553299 [debug] [Thread-1 (]: Began compiling node model.datatrust_os.stg_yellow_trips
+[0m14:01:51.569491 [debug] [Thread-1 (]: Writing injected SQL for node "model.datatrust_os.stg_yellow_trips"
+[0m14:01:51.572495 [debug] [Thread-1 (]: Began executing node model.datatrust_os.stg_yellow_trips
+[0m14:01:51.628841 [debug] [Thread-1 (]: Writing runtime sql for node "model.datatrust_os.stg_yellow_trips"
+[0m14:01:51.628841 [debug] [Thread-1 (]: Using postgres connection "model.datatrust_os.stg_yellow_trips"
+[0m14:01:51.628841 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "model.datatrust_os.stg_yellow_trips"} */
+
+  create view "datatrust_os"."staging_staging"."stg_yellow_trips__dbt_tmp"
+    
+    
+  as (
+    with source as (
+
+    select *
+    from "datatrust_os"."raw"."yellow_trips"
+
+),
+
+renamed as (
+
+    select
+        md5(
+            concat_ws(
+                '||',
+                "VendorID"::text,
+                tpep_pickup_datetime::text,
+                tpep_dropoff_datetime::text,
+                "PULocationID"::text,
+                "DOLocationID"::text,
+                fare_amount::text,
+                total_amount::text,
+                _source_file::text
+            )
+        ) as trip_id,
+
+        'yellow' as source_system,
+
+        "VendorID"::integer as vendor_id,
+        tpep_pickup_datetime::timestamp as pickup_datetime,
+        tpep_dropoff_datetime::timestamp as dropoff_datetime,
+        date(tpep_pickup_datetime) as pickup_date,
+
+        "PULocationID"::integer as pickup_location_id,
+        "DOLocationID"::integer as dropoff_location_id,
+
+        passenger_count::numeric as passenger_count,
+        trip_distance::numeric as trip_distance,
+        fare_amount::numeric as fare_amount,
+        tip_amount::numeric as tip_amount,
+        total_amount::numeric as total_amount,
+
+        payment_type::integer as payment_type,
+        "RatecodeID"::integer as ratecode_id,
+        store_and_fwd_flag::text as store_and_fwd_flag,
+
+        _source_file as source_file,
+        _source_file_hash as source_file_hash,
+        _ingested_at as ingested_at
+
+    from source
+
+)
+
+select *
+from renamed
+  );
+[0m14:01:51.628841 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:01:51.848555 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.215 seconds
+[0m14:01:51.866655 [debug] [Thread-1 (]: Using postgres connection "model.datatrust_os.stg_yellow_trips"
+[0m14:01:51.866655 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "model.datatrust_os.stg_yellow_trips"} */
+alter table "datatrust_os"."staging_staging"."stg_yellow_trips__dbt_tmp" rename to "stg_yellow_trips"
+[0m14:01:51.866655 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m14:01:51.897974 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: COMMIT
+[0m14:01:51.897974 [debug] [Thread-1 (]: Using postgres connection "model.datatrust_os.stg_yellow_trips"
+[0m14:01:51.897974 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: COMMIT
+[0m14:01:51.899983 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m14:01:51.911855 [debug] [Thread-1 (]: Applying DROP to: "datatrust_os"."staging_staging"."stg_yellow_trips__dbt_backup"
+[0m14:01:51.919920 [debug] [Thread-1 (]: Using postgres connection "model.datatrust_os.stg_yellow_trips"
+[0m14:01:51.920927 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "model.datatrust_os.stg_yellow_trips"} */
+drop view if exists "datatrust_os"."staging_staging"."stg_yellow_trips__dbt_backup" cascade
+[0m14:01:51.922109 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m14:01:51.925630 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: Close
+[0m14:01:51.925630 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb133d00-8c81-4bb8-9459-ba51c002049a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A216FA9DC0>]}
+[0m14:01:51.925630 [info ] [Thread-1 (]: 1 of 1 OK created sql view model staging_staging.stg_yellow_trips .............. [[32mCREATE VIEW[0m in 0.37s]
+[0m14:01:51.925630 [debug] [Thread-1 (]: Finished running node model.datatrust_os.stg_yellow_trips
+[0m14:01:51.925630 [debug] [MainThread]: On master: COMMIT
+[0m14:01:51.925630 [debug] [MainThread]: Using postgres connection "master"
+[0m14:01:51.925630 [debug] [MainThread]: On master: COMMIT
+[0m14:01:51.925630 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:01:51.974994 [debug] [MainThread]: SQL status: COMMIT in 0.039 seconds
+[0m14:01:51.974994 [debug] [MainThread]: On master: Close
+[0m14:01:51.974994 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:01:51.977076 [debug] [MainThread]: Connection 'create_datatrust_os_staging_staging' was properly closed.
+[0m14:01:51.977076 [debug] [MainThread]: Connection 'list_datatrust_os_staging_staging' was properly closed.
+[0m14:01:51.977076 [debug] [MainThread]: Connection 'model.datatrust_os.stg_yellow_trips' was properly closed.
+[0m14:01:51.979082 [info ] [MainThread]: 
+[0m14:01:51.979082 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.96 seconds (0.96s).
+[0m14:01:51.981099 [debug] [MainThread]: Command end result
+[0m14:01:52.034753 [debug] [MainThread]: Wrote artifact WritableManifest to D:\datatrust-os\dbt_project\target\manifest.json
+[0m14:01:52.034753 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\datatrust-os\dbt_project\target\semantic_manifest.json
+[0m14:01:52.053568 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\datatrust-os\dbt_project\target\run_results.json
+[0m14:01:52.053568 [info ] [MainThread]: 
+[0m14:01:52.055575 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:01:52.055575 [info ] [MainThread]: 
+[0m14:01:52.055575 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m14:01:52.055575 [debug] [MainThread]: Command `dbt run` succeeded at 14:01:52.055575 after 5.43 seconds
+[0m14:01:52.055575 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A2118A92B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A2149EC320>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A216A43B60>]}
+[0m14:01:52.055575 [debug] [MainThread]: Flushing usage events
+[0m14:01:52.532802 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:04:10.242942 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC705FD820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC705FC5F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC705FD520>]}
+
+
+============================== 14:04:10.254086 | ebdc9dcb-8f5a-420b-9454-e3fa92985f6b ==============================
+[0m14:04:10.254086 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m14:04:10.254086 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --select stg_yellow_trips --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'D:\\datatrust-os\\dbt_project\\logs'}
+[0m14:04:10.656296 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ebdc9dcb-8f5a-420b-9454-e3fa92985f6b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC70838EC0>]}
+[0m14:04:10.718814 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ebdc9dcb-8f5a-420b-9454-e3fa92985f6b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC6EA34DA0>]}
+[0m14:04:10.719813 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:04:11.144422 [debug] [MainThread]: checksum: 523becabd41852b3e77e6c5e4d41bbe55fa8cd5b7a0468ffa21ba10f6bae2e07, vars: {}, profile: datatrust_os, target: dev, version: 1.12.0b1
+[0m14:04:11.253874 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m14:04:11.253874 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'ebdc9dcb-8f5a-420b-9454-e3fa92985f6b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC6EF02EA0>]}
+[0m14:04:13.967984 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 4 unused configuration paths:
+- models.datatrust_os.governance
+- models.datatrust_os.intermediate
+- models.datatrust_os.marts
+- seeds.datatrust_os
+[0m14:04:13.972837 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ebdc9dcb-8f5a-420b-9454-e3fa92985f6b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC70D7B500>]}
+[0m14:04:14.050243 [debug] [MainThread]: Wrote artifact WritableManifest to D:\datatrust-os\dbt_project\target\manifest.json
+[0m14:04:14.086103 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\datatrust-os\dbt_project\target\semantic_manifest.json
+[0m14:04:14.104663 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ebdc9dcb-8f5a-420b-9454-e3fa92985f6b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC7104D700>]}
+[0m14:04:14.104663 [info ] [MainThread]: Found 1 model, 1 source, 475 macros
+[0m14:04:14.104663 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ebdc9dcb-8f5a-420b-9454-e3fa92985f6b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC71057170>]}
+[0m14:04:14.104663 [info ] [MainThread]: 
+[0m14:04:14.104663 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:04:14.104663 [info ] [MainThread]: 
+[0m14:04:14.104663 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m14:04:14.104663 [debug] [ThreadPool]: Acquiring new postgres connection 'list_datatrust_os'
+[0m14:04:18.092043 [debug] [ThreadPool]: Using postgres connection "list_datatrust_os"
+[0m14:04:18.093041 [debug] [ThreadPool]: On list_datatrust_os: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "list_datatrust_os"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m14:04:18.093041 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:04:18.128818 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.041 seconds
+[0m14:04:18.128818 [debug] [ThreadPool]: On list_datatrust_os: Close
+[0m14:04:18.128818 [debug] [ThreadPool]: Acquiring new postgres connection 'list_datatrust_os_staging'
+[0m14:04:18.144624 [debug] [ThreadPool]: Using postgres connection "list_datatrust_os_staging"
+[0m14:04:18.144624 [debug] [ThreadPool]: On list_datatrust_os_staging: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "list_datatrust_os_staging"} */
+select
+      'datatrust_os' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'datatrust_os' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'datatrust_os' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m14:04:18.144624 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:04:18.192567 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.047 seconds
+[0m14:04:18.194584 [debug] [ThreadPool]: On list_datatrust_os_staging: ROLLBACK
+[0m14:04:18.195585 [debug] [ThreadPool]: On list_datatrust_os_staging: Close
+[0m14:04:18.199754 [debug] [MainThread]: Using postgres connection "master"
+[0m14:04:18.201106 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m14:04:18.201106 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:04:18.254761 [debug] [MainThread]: SQL status: SELECT 0 in 0.056 seconds
+[0m14:04:18.254761 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ebdc9dcb-8f5a-420b-9454-e3fa92985f6b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC7104D400>]}
+[0m14:04:18.254761 [debug] [MainThread]: On master: ROLLBACK
+[0m14:04:18.254761 [debug] [MainThread]: On master: COMMIT
+[0m14:04:18.254761 [debug] [MainThread]: Using postgres connection "master"
+[0m14:04:18.254761 [debug] [MainThread]: On master: COMMIT
+[0m14:04:18.254761 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m14:04:18.254761 [debug] [MainThread]: On master: Close
+[0m14:04:18.254761 [debug] [Thread-1 (]: Began running node model.datatrust_os.stg_yellow_trips
+[0m14:04:18.254761 [info ] [Thread-1 (]: 1 of 1 START sql view model staging.stg_yellow_trips ........................... [RUN]
+[0m14:04:18.254761 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.datatrust_os.stg_yellow_trips'
+[0m14:04:18.254761 [debug] [Thread-1 (]: Began compiling node model.datatrust_os.stg_yellow_trips
+[0m14:04:18.276799 [debug] [Thread-1 (]: Writing injected SQL for node "model.datatrust_os.stg_yellow_trips"
+[0m14:04:18.277799 [debug] [Thread-1 (]: Began executing node model.datatrust_os.stg_yellow_trips
+[0m14:04:18.312772 [debug] [Thread-1 (]: Writing runtime sql for node "model.datatrust_os.stg_yellow_trips"
+[0m14:04:18.313771 [debug] [Thread-1 (]: Using postgres connection "model.datatrust_os.stg_yellow_trips"
+[0m14:04:18.313771 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "model.datatrust_os.stg_yellow_trips"} */
+
+  create view "datatrust_os"."staging"."stg_yellow_trips__dbt_tmp"
+    
+    
+  as (
+    with source as (
+
+    select *
+    from "datatrust_os"."raw"."yellow_trips"
+
+),
+
+renamed as (
+
+    select
+        md5(
+            concat_ws(
+                '||',
+                "VendorID"::text,
+                tpep_pickup_datetime::text,
+                tpep_dropoff_datetime::text,
+                "PULocationID"::text,
+                "DOLocationID"::text,
+                fare_amount::text,
+                total_amount::text,
+                _source_file::text
+            )
+        ) as trip_id,
+
+        'yellow' as source_system,
+
+        "VendorID"::integer as vendor_id,
+        tpep_pickup_datetime::timestamp as pickup_datetime,
+        tpep_dropoff_datetime::timestamp as dropoff_datetime,
+        date(tpep_pickup_datetime) as pickup_date,
+
+        "PULocationID"::integer as pickup_location_id,
+        "DOLocationID"::integer as dropoff_location_id,
+
+        passenger_count::numeric as passenger_count,
+        trip_distance::numeric as trip_distance,
+        fare_amount::numeric as fare_amount,
+        tip_amount::numeric as tip_amount,
+        total_amount::numeric as total_amount,
+
+        payment_type::integer as payment_type,
+        "RatecodeID"::integer as ratecode_id,
+        store_and_fwd_flag::text as store_and_fwd_flag,
+
+        _source_file as source_file,
+        _source_file_hash as source_file_hash,
+        _ingested_at as ingested_at
+
+    from source
+
+)
+
+select *
+from renamed
+  );
+[0m14:04:18.315176 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:04:18.456724 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.152 seconds
+[0m14:04:18.472551 [debug] [Thread-1 (]: Using postgres connection "model.datatrust_os.stg_yellow_trips"
+[0m14:04:18.472551 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "model.datatrust_os.stg_yellow_trips"} */
+alter table "datatrust_os"."staging"."stg_yellow_trips__dbt_tmp" rename to "stg_yellow_trips"
+[0m14:04:18.472551 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m14:04:18.488354 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: COMMIT
+[0m14:04:18.488354 [debug] [Thread-1 (]: Using postgres connection "model.datatrust_os.stg_yellow_trips"
+[0m14:04:18.488354 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: COMMIT
+[0m14:04:18.490363 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m14:04:18.500403 [debug] [Thread-1 (]: Applying DROP to: "datatrust_os"."staging"."stg_yellow_trips__dbt_backup"
+[0m14:04:18.504161 [debug] [Thread-1 (]: Using postgres connection "model.datatrust_os.stg_yellow_trips"
+[0m14:04:18.506215 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "model.datatrust_os.stg_yellow_trips"} */
+drop view if exists "datatrust_os"."staging"."stg_yellow_trips__dbt_backup" cascade
+[0m14:04:18.506215 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m14:04:18.509010 [debug] [Thread-1 (]: On model.datatrust_os.stg_yellow_trips: Close
+[0m14:04:18.512180 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ebdc9dcb-8f5a-420b-9454-e3fa92985f6b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC6C130470>]}
+[0m14:04:18.512180 [info ] [Thread-1 (]: 1 of 1 OK created sql view model staging.stg_yellow_trips ...................... [[32mCREATE VIEW[0m in 0.25s]
+[0m14:04:18.514188 [debug] [Thread-1 (]: Finished running node model.datatrust_os.stg_yellow_trips
+[0m14:04:18.514188 [debug] [MainThread]: On master: COMMIT
+[0m14:04:18.516961 [debug] [MainThread]: Using postgres connection "master"
+[0m14:04:18.516961 [debug] [MainThread]: On master: COMMIT
+[0m14:04:18.516961 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:04:18.540401 [debug] [MainThread]: SQL status: COMMIT in 0.032 seconds
+[0m14:04:18.540401 [debug] [MainThread]: On master: Close
+[0m14:04:18.551260 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:04:18.551260 [debug] [MainThread]: Connection 'list_datatrust_os' was properly closed.
+[0m14:04:18.551260 [debug] [MainThread]: Connection 'list_datatrust_os_staging' was properly closed.
+[0m14:04:18.551260 [debug] [MainThread]: Connection 'model.datatrust_os.stg_yellow_trips' was properly closed.
+[0m14:04:18.551260 [info ] [MainThread]: 
+[0m14:04:18.553269 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 4.45 seconds (4.45s).
+[0m14:04:18.553269 [debug] [MainThread]: Command end result
+[0m14:04:18.577360 [debug] [MainThread]: Wrote artifact WritableManifest to D:\datatrust-os\dbt_project\target\manifest.json
+[0m14:04:18.577360 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\datatrust-os\dbt_project\target\semantic_manifest.json
+[0m14:04:18.588914 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\datatrust-os\dbt_project\target\run_results.json
+[0m14:04:18.588914 [info ] [MainThread]: 
+[0m14:04:18.588914 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:04:18.590922 [info ] [MainThread]: 
+[0m14:04:18.590922 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m14:04:18.592931 [debug] [MainThread]: Command `dbt run` succeeded at 14:04:18.590922 after 8.53 seconds
+[0m14:04:18.592931 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC705FC620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC705FD820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC705FC350>]}
+[0m14:04:18.592931 [debug] [MainThread]: Flushing usage events
+[0m14:04:18.963713 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:07:39.535644 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F854C39B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F85573590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F85571010>]}
+
+
+============================== 14:07:39.535644 | d3a136b6-a9ea-4729-95ff-1d255ddb8450 ==============================
+[0m14:07:39.535644 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m14:07:39.535644 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt test --select stg_yellow_trips --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'D:\\datatrust-os\\dbt_project\\logs'}
+[0m14:07:39.700955 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd3a136b6-a9ea-4729-95ff-1d255ddb8450', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F8738F830>]}
+[0m14:07:39.754341 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd3a136b6-a9ea-4729-95ff-1d255ddb8450', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F85C03890>]}
+[0m14:07:39.754341 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:07:39.973798 [debug] [MainThread]: checksum: 523becabd41852b3e77e6c5e4d41bbe55fa8cd5b7a0468ffa21ba10f6bae2e07, vars: {}, profile: datatrust_os, target: dev, version: 1.12.0b1
+[0m14:07:40.113512 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m14:07:40.113512 [debug] [MainThread]: Partial parsing: added file: datatrust_os://models\staging\stg_yellow_trips.yml
+[0m14:07:40.459246 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 4 unused configuration paths:
+- models.datatrust_os.marts
+- models.datatrust_os.intermediate
+- models.datatrust_os.governance
+- seeds.datatrust_os
+[0m14:07:40.475375 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd3a136b6-a9ea-4729-95ff-1d255ddb8450', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F87DFE150>]}
+[0m14:07:40.601663 [debug] [MainThread]: Wrote artifact WritableManifest to D:\datatrust-os\dbt_project\target\manifest.json
+[0m14:07:40.601663 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\datatrust-os\dbt_project\target\semantic_manifest.json
+[0m14:07:40.615852 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd3a136b6-a9ea-4729-95ff-1d255ddb8450', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F87BCFA70>]}
+[0m14:07:40.615852 [info ] [MainThread]: Found 1 model, 9 data tests, 1 source, 475 macros
+[0m14:07:40.615852 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd3a136b6-a9ea-4729-95ff-1d255ddb8450', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F87D0DFD0>]}
+[0m14:07:40.615852 [info ] [MainThread]: 
+[0m14:07:40.615852 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:07:40.615852 [info ] [MainThread]: 
+[0m14:07:40.615852 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m14:07:40.615852 [debug] [ThreadPool]: Acquiring new postgres connection 'list_datatrust_os_staging'
+[0m14:07:40.701740 [debug] [ThreadPool]: Using postgres connection "list_datatrust_os_staging"
+[0m14:07:40.701740 [debug] [ThreadPool]: On list_datatrust_os_staging: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "list_datatrust_os_staging"} */
+select
+      'datatrust_os' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'datatrust_os' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'datatrust_os' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m14:07:40.701740 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:07:40.744266 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.040 seconds
+[0m14:07:40.746277 [debug] [ThreadPool]: On list_datatrust_os_staging: ROLLBACK
+[0m14:07:40.746277 [debug] [ThreadPool]: On list_datatrust_os_staging: Close
+[0m14:07:40.750294 [debug] [MainThread]: Using postgres connection "master"
+[0m14:07:40.750294 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m14:07:40.752300 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:07:40.785824 [debug] [MainThread]: SQL status: SELECT 1 in 0.041 seconds
+[0m14:07:40.785824 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd3a136b6-a9ea-4729-95ff-1d255ddb8450', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F87BEF1A0>]}
+[0m14:07:40.785824 [debug] [MainThread]: On master: ROLLBACK
+[0m14:07:40.785824 [debug] [MainThread]: On master: COMMIT
+[0m14:07:40.785824 [debug] [MainThread]: Using postgres connection "master"
+[0m14:07:40.785824 [debug] [MainThread]: On master: COMMIT
+[0m14:07:40.785824 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m14:07:40.785824 [debug] [MainThread]: On master: Close
+[0m14:07:40.801576 [debug] [Thread-2 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052
+[0m14:07:40.802080 [debug] [Thread-1 (]: Began running node test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd
+[0m14:07:40.802080 [debug] [Thread-3 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048
+[0m14:07:40.802080 [debug] [Thread-4 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97
+[0m14:07:40.802080 [info ] [Thread-2 (]: 2 of 9 START test not_null_stg_yellow_trips_dropoff_datetime ................... [RUN]
+[0m14:07:40.802080 [info ] [Thread-1 (]: 1 of 9 START test accepted_values_stg_yellow_trips_source_system__yellow ....... [RUN]
+[0m14:07:40.802080 [info ] [Thread-3 (]: 3 of 9 START test not_null_stg_yellow_trips_dropoff_location_id ................ [RUN]
+[0m14:07:40.802080 [debug] [Thread-2 (]: Acquiring new postgres connection 'test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052'
+[0m14:07:40.802080 [info ] [Thread-4 (]: 4 of 9 START test not_null_stg_yellow_trips_fare_amount ........................ [RUN]
+[0m14:07:40.802080 [debug] [Thread-1 (]: Acquiring new postgres connection 'test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd'
+[0m14:07:40.802080 [debug] [Thread-3 (]: Acquiring new postgres connection 'test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048'
+[0m14:07:40.802080 [debug] [Thread-2 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052
+[0m14:07:40.802080 [debug] [Thread-4 (]: Acquiring new postgres connection 'test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97'
+[0m14:07:40.802080 [debug] [Thread-1 (]: Began compiling node test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd
+[0m14:07:40.802080 [debug] [Thread-3 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048
+[0m14:07:40.819920 [debug] [Thread-2 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052"
+[0m14:07:40.819920 [debug] [Thread-4 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97
+[0m14:07:40.824682 [debug] [Thread-1 (]: Writing injected SQL for node "test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd"
+[0m14:07:40.828664 [debug] [Thread-3 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048"
+[0m14:07:40.831671 [debug] [Thread-4 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97"
+[0m14:07:40.831671 [debug] [Thread-2 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052
+[0m14:07:40.847676 [debug] [Thread-2 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052"
+[0m14:07:40.847676 [debug] [Thread-1 (]: Began executing node test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd
+[0m14:07:40.851421 [debug] [Thread-1 (]: Writing runtime sql for node "test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd"
+[0m14:07:40.851421 [debug] [Thread-4 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97
+[0m14:07:40.851421 [debug] [Thread-3 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048
+[0m14:07:40.855392 [debug] [Thread-4 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97"
+[0m14:07:40.855392 [debug] [Thread-2 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052"
+[0m14:07:40.855392 [debug] [Thread-3 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048"
+[0m14:07:40.855392 [debug] [Thread-1 (]: Using postgres connection "test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd"
+[0m14:07:40.855392 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select dropoff_datetime
+from "datatrust_os"."staging"."stg_yellow_trips"
+where dropoff_datetime is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:40.855392 [debug] [Thread-4 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97"
+[0m14:07:40.855392 [debug] [Thread-1 (]: On test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        source_system as value_field,
+        count(*) as n_records
+
+    from "datatrust_os"."staging"."stg_yellow_trips"
+    group by source_system
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'yellow'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:40.855392 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m14:07:40.855392 [debug] [Thread-3 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048"
+[0m14:07:40.855392 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select fare_amount
+from "datatrust_os"."staging"."stg_yellow_trips"
+where fare_amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:40.855392 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:07:40.855392 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select dropoff_location_id
+from "datatrust_os"."staging"."stg_yellow_trips"
+where dropoff_location_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:40.855392 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m14:07:40.855392 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m14:07:40.904279 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.044 seconds
+[0m14:07:40.911481 [debug] [Thread-1 (]: On test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd: ROLLBACK
+[0m14:07:40.912476 [debug] [Thread-1 (]: On test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd: Close
+[0m14:07:40.913912 [info ] [Thread-1 (]: 1 of 9 PASS accepted_values_stg_yellow_trips_source_system__yellow ............. [[32mPASS[0m in 0.11s]
+[0m14:07:40.921079 [debug] [Thread-1 (]: Finished running node test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd
+[0m14:07:40.922090 [debug] [Thread-1 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed
+[0m14:07:40.922090 [info ] [Thread-1 (]: 5 of 9 START test not_null_stg_yellow_trips_pickup_datetime .................... [RUN]
+[0m14:07:40.931898 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd, now test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed)
+[0m14:07:40.931898 [debug] [Thread-1 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed
+[0m14:07:40.938417 [debug] [Thread-1 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed"
+[0m14:07:40.939424 [debug] [Thread-1 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed
+[0m14:07:40.942605 [debug] [Thread-1 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed"
+[0m14:07:40.944442 [debug] [Thread-1 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed"
+[0m14:07:40.945266 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select pickup_datetime
+from "datatrust_os"."staging"."stg_yellow_trips"
+where pickup_datetime is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:40.945266 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:07:42.040277 [debug] [Thread-2 (]: SQL status: SELECT 1 in 1.181 seconds
+[0m14:07:42.042990 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052: ROLLBACK
+[0m14:07:42.043990 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052: Close
+[0m14:07:42.045312 [info ] [Thread-2 (]: 2 of 9 PASS not_null_stg_yellow_trips_dropoff_datetime ......................... [[32mPASS[0m in 1.24s]
+[0m14:07:42.046321 [debug] [Thread-2 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052
+[0m14:07:42.047321 [debug] [Thread-2 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1
+[0m14:07:42.047321 [info ] [Thread-2 (]: 6 of 9 START test not_null_stg_yellow_trips_pickup_location_id ................. [RUN]
+[0m14:07:42.048690 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052, now test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1)
+[0m14:07:42.049770 [debug] [Thread-2 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1
+[0m14:07:42.055774 [debug] [Thread-2 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1"
+[0m14:07:42.055774 [debug] [Thread-2 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1
+[0m14:07:42.060321 [debug] [Thread-2 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1"
+[0m14:07:42.061345 [debug] [Thread-2 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1"
+[0m14:07:42.061345 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select pickup_location_id
+from "datatrust_os"."staging"."stg_yellow_trips"
+where pickup_location_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:42.063352 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m14:07:42.072378 [debug] [Thread-3 (]: SQL status: SELECT 1 in 1.209 seconds
+[0m14:07:42.074384 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048: ROLLBACK
+[0m14:07:42.074384 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048: Close
+[0m14:07:42.077038 [info ] [Thread-3 (]: 3 of 9 PASS not_null_stg_yellow_trips_dropoff_location_id ...................... [[32mPASS[0m in 1.27s]
+[0m14:07:42.079887 [debug] [Thread-3 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048
+[0m14:07:42.080878 [debug] [Thread-3 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b
+[0m14:07:42.080878 [info ] [Thread-3 (]: 7 of 9 START test not_null_stg_yellow_trips_source_system ...................... [RUN]
+[0m14:07:42.082620 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048, now test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b)
+[0m14:07:42.083333 [debug] [Thread-3 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b
+[0m14:07:42.089458 [debug] [Thread-3 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b"
+[0m14:07:42.090688 [debug] [Thread-3 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b
+[0m14:07:42.094749 [debug] [Thread-3 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b"
+[0m14:07:42.096836 [debug] [Thread-3 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b"
+[0m14:07:42.096836 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select source_system
+from "datatrust_os"."staging"."stg_yellow_trips"
+where source_system is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:42.097943 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m14:07:42.144154 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.046 seconds
+[0m14:07:42.146385 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b: ROLLBACK
+[0m14:07:42.146385 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b: Close
+[0m14:07:42.148391 [info ] [Thread-3 (]: 7 of 9 PASS not_null_stg_yellow_trips_source_system ............................ [[32mPASS[0m in 0.07s]
+[0m14:07:42.151649 [debug] [Thread-3 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b
+[0m14:07:42.151649 [debug] [Thread-3 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6
+[0m14:07:42.151649 [info ] [Thread-3 (]: 8 of 9 START test not_null_stg_yellow_trips_total_amount ....................... [RUN]
+[0m14:07:42.154160 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b, now test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6)
+[0m14:07:42.154160 [debug] [Thread-3 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6
+[0m14:07:42.159918 [debug] [Thread-3 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6"
+[0m14:07:42.161927 [debug] [Thread-3 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6
+[0m14:07:42.165944 [debug] [Thread-3 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6"
+[0m14:07:42.165944 [debug] [Thread-3 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6"
+[0m14:07:42.167948 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select total_amount
+from "datatrust_os"."staging"."stg_yellow_trips"
+where total_amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:42.167948 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m14:07:42.274568 [debug] [Thread-4 (]: SQL status: SELECT 1 in 1.412 seconds
+[0m14:07:42.276799 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97: ROLLBACK
+[0m14:07:42.277714 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97: Close
+[0m14:07:42.278726 [debug] [Thread-1 (]: SQL status: SELECT 1 in 1.334 seconds
+[0m14:07:42.278726 [info ] [Thread-4 (]: 4 of 9 PASS not_null_stg_yellow_trips_fare_amount .............................. [[32mPASS[0m in 1.48s]
+[0m14:07:42.281989 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed: ROLLBACK
+[0m14:07:42.283059 [debug] [Thread-4 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97
+[0m14:07:42.283059 [debug] [Thread-4 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1
+[0m14:07:42.283059 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed: Close
+[0m14:07:42.285065 [info ] [Thread-4 (]: 9 of 9 START test not_null_stg_yellow_trips_trip_id ............................ [RUN]
+[0m14:07:42.286069 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97, now test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1)
+[0m14:07:42.286069 [debug] [Thread-4 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1
+[0m14:07:42.286069 [info ] [Thread-1 (]: 5 of 9 PASS not_null_stg_yellow_trips_pickup_datetime .......................... [[32mPASS[0m in 1.35s]
+[0m14:07:42.292870 [debug] [Thread-4 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1"
+[0m14:07:42.294273 [debug] [Thread-1 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed
+[0m14:07:42.295708 [debug] [Thread-4 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1
+[0m14:07:42.299223 [debug] [Thread-4 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1"
+[0m14:07:42.299223 [debug] [Thread-4 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1"
+[0m14:07:42.301232 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select trip_id
+from "datatrust_os"."staging"."stg_yellow_trips"
+where trip_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:07:42.301232 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m14:07:43.331093 [debug] [Thread-2 (]: SQL status: SELECT 1 in 1.269 seconds
+[0m14:07:43.333885 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1: ROLLBACK
+[0m14:07:43.335562 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1: Close
+[0m14:07:43.336567 [info ] [Thread-2 (]: 6 of 9 PASS not_null_stg_yellow_trips_pickup_location_id ....................... [[32mPASS[0m in 1.29s]
+[0m14:07:43.342569 [debug] [Thread-2 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1
+[0m14:07:43.831700 [debug] [Thread-3 (]: SQL status: SELECT 1 in 1.666 seconds
+[0m14:07:43.836018 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6: ROLLBACK
+[0m14:07:43.836018 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6: Close
+[0m14:07:43.838023 [info ] [Thread-3 (]: 8 of 9 PASS not_null_stg_yellow_trips_total_amount ............................. [[32mPASS[0m in 1.68s]
+[0m14:07:43.838023 [debug] [Thread-3 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6
+[0m14:07:45.613259 [debug] [Thread-4 (]: SQL status: SELECT 1 in 3.321 seconds
+[0m14:07:45.613259 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1: ROLLBACK
+[0m14:07:45.613259 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1: Close
+[0m14:07:45.613259 [info ] [Thread-4 (]: 9 of 9 PASS not_null_stg_yellow_trips_trip_id .................................. [[32mPASS[0m in 3.33s]
+[0m14:07:45.613259 [debug] [Thread-4 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1
+[0m14:07:45.613259 [debug] [MainThread]: On master: COMMIT
+[0m14:07:45.613259 [debug] [MainThread]: Using postgres connection "master"
+[0m14:07:45.613259 [debug] [MainThread]: On master: COMMIT
+[0m14:07:45.629313 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:07:45.645400 [debug] [MainThread]: SQL status: COMMIT in 0.029 seconds
+[0m14:07:45.645400 [debug] [MainThread]: On master: Close
+[0m14:07:45.645400 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:07:45.645400 [debug] [MainThread]: Connection 'list_datatrust_os_staging' was properly closed.
+[0m14:07:45.645400 [debug] [MainThread]: Connection 'test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1' was properly closed.
+[0m14:07:45.645400 [debug] [MainThread]: Connection 'test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed' was properly closed.
+[0m14:07:45.645400 [debug] [MainThread]: Connection 'test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6' was properly closed.
+[0m14:07:45.645400 [debug] [MainThread]: Connection 'test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1' was properly closed.
+[0m14:07:45.645400 [info ] [MainThread]: 
+[0m14:07:45.661184 [info ] [MainThread]: Finished running 9 data tests in 0 hours 0 minutes and 5.03 seconds (5.03s).
+[0m14:07:45.663191 [debug] [MainThread]: Command end result
+[0m14:07:45.677236 [debug] [MainThread]: Wrote artifact WritableManifest to D:\datatrust-os\dbt_project\target\manifest.json
+[0m14:07:45.677236 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\datatrust-os\dbt_project\target\semantic_manifest.json
+[0m14:07:45.694116 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\datatrust-os\dbt_project\target\run_results.json
+[0m14:07:45.695125 [info ] [MainThread]: 
+[0m14:07:45.695125 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:07:45.696446 [info ] [MainThread]: 
+[0m14:07:45.696446 [info ] [MainThread]: Done. PASS=9 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=9
+[0m14:07:45.696446 [debug] [MainThread]: Command `dbt test` succeeded at 14:07:45.696446 after 6.29 seconds
+[0m14:07:45.698005 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F85A93350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F85A92BA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018F87DE1CA0>]}
+[0m14:07:45.698005 [debug] [MainThread]: Flushing usage events
+[0m14:07:46.019605 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:14:56.206903 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C3462E3E30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C348DB2A20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C348AD47D0>]}
+
+
+============================== 14:14:56.212057 | 44a3051c-f5e6-4584-aafa-b16744589bdc ==============================
+[0m14:14:56.212057 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m14:14:56.212057 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt test --select stg_yellow_trips --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'D:\\datatrust-os\\dbt_project\\logs'}
+[0m14:14:56.363677 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '44a3051c-f5e6-4584-aafa-b16744589bdc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C34A996F00>]}
+[0m14:14:56.425240 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '44a3051c-f5e6-4584-aafa-b16744589bdc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C3494E6720>]}
+[0m14:14:56.425240 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:14:56.653120 [debug] [MainThread]: checksum: 523becabd41852b3e77e6c5e4d41bbe55fa8cd5b7a0468ffa21ba10f6bae2e07, vars: {}, profile: datatrust_os, target: dev, version: 1.12.0b1
+[0m14:14:56.814076 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 3 files added, 0 files changed.
+[0m14:14:56.814076 [debug] [MainThread]: Partial parsing: added file: datatrust_os://tests\pickup_outside_file_month.sql
+[0m14:14:56.814076 [debug] [MainThread]: Partial parsing: added file: datatrust_os://tests\impossible_trip_timestamps.sql
+[0m14:14:56.814076 [debug] [MainThread]: Partial parsing: added file: datatrust_os://tests\negative_fare_amount.sql
+[0m14:14:56.988429 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 4 unused configuration paths:
+- models.datatrust_os.governance
+- models.datatrust_os.marts
+- models.datatrust_os.intermediate
+- seeds.datatrust_os
+[0m14:14:56.988429 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '44a3051c-f5e6-4584-aafa-b16744589bdc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C34B187AA0>]}
+[0m14:14:57.081080 [debug] [MainThread]: Wrote artifact WritableManifest to D:\datatrust-os\dbt_project\target\manifest.json
+[0m14:14:57.081080 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\datatrust-os\dbt_project\target\semantic_manifest.json
+[0m14:14:57.144768 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '44a3051c-f5e6-4584-aafa-b16744589bdc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C34AD3B0B0>]}
+[0m14:14:57.144768 [info ] [MainThread]: Found 1 model, 12 data tests, 1 source, 475 macros
+[0m14:14:57.144768 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '44a3051c-f5e6-4584-aafa-b16744589bdc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C34B211940>]}
+[0m14:14:57.153831 [info ] [MainThread]: 
+[0m14:14:57.153831 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:14:57.153831 [info ] [MainThread]: 
+[0m14:14:57.153831 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m14:14:57.153831 [debug] [ThreadPool]: Acquiring new postgres connection 'list_datatrust_os_staging'
+[0m14:14:57.222591 [debug] [ThreadPool]: Using postgres connection "list_datatrust_os_staging"
+[0m14:14:57.222591 [debug] [ThreadPool]: On list_datatrust_os_staging: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "list_datatrust_os_staging"} */
+select
+      'datatrust_os' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'datatrust_os' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'datatrust_os' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m14:14:57.222591 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:14:57.265479 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.043 seconds
+[0m14:14:57.265479 [debug] [ThreadPool]: On list_datatrust_os_staging: ROLLBACK
+[0m14:14:57.270655 [debug] [ThreadPool]: On list_datatrust_os_staging: Close
+[0m14:14:57.272866 [debug] [MainThread]: Using postgres connection "master"
+[0m14:14:57.274873 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m14:14:57.274873 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:14:57.300032 [debug] [MainThread]: SQL status: SELECT 1 in 0.036 seconds
+[0m14:14:57.312480 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '44a3051c-f5e6-4584-aafa-b16744589bdc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C3465CB440>]}
+[0m14:14:57.312480 [debug] [MainThread]: On master: ROLLBACK
+[0m14:14:57.314796 [debug] [MainThread]: On master: COMMIT
+[0m14:14:57.314796 [debug] [MainThread]: Using postgres connection "master"
+[0m14:14:57.314796 [debug] [MainThread]: On master: COMMIT
+[0m14:14:57.315802 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m14:14:57.315802 [debug] [MainThread]: On master: Close
+[0m14:14:57.315802 [debug] [Thread-1 (]: Began running node test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd
+[0m14:14:57.315802 [debug] [Thread-2 (]: Began running node test.datatrust_os.impossible_trip_timestamps
+[0m14:14:57.315802 [debug] [Thread-3 (]: Began running node test.datatrust_os.negative_fare_amount
+[0m14:14:57.315802 [debug] [Thread-4 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052
+[0m14:14:57.315802 [info ] [Thread-1 (]: 1 of 12 START test accepted_values_stg_yellow_trips_source_system__yellow ...... [RUN]
+[0m14:14:57.315802 [info ] [Thread-2 (]: 2 of 12 START test impossible_trip_timestamps .................................. [RUN]
+[0m14:14:57.315802 [info ] [Thread-3 (]: 3 of 12 START test negative_fare_amount ........................................ [RUN]
+[0m14:14:57.315802 [info ] [Thread-4 (]: 4 of 12 START test not_null_stg_yellow_trips_dropoff_datetime .................. [RUN]
+[0m14:14:57.315802 [debug] [Thread-1 (]: Acquiring new postgres connection 'test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd'
+[0m14:14:57.315802 [debug] [Thread-2 (]: Acquiring new postgres connection 'test.datatrust_os.impossible_trip_timestamps'
+[0m14:14:57.315802 [debug] [Thread-3 (]: Acquiring new postgres connection 'test.datatrust_os.negative_fare_amount'
+[0m14:14:57.315802 [debug] [Thread-4 (]: Acquiring new postgres connection 'test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052'
+[0m14:14:57.326321 [debug] [Thread-1 (]: Began compiling node test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd
+[0m14:14:57.326321 [debug] [Thread-2 (]: Began compiling node test.datatrust_os.impossible_trip_timestamps
+[0m14:14:57.326321 [debug] [Thread-3 (]: Began compiling node test.datatrust_os.negative_fare_amount
+[0m14:14:57.326321 [debug] [Thread-4 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052
+[0m14:14:57.331836 [debug] [Thread-1 (]: Writing injected SQL for node "test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd"
+[0m14:14:57.331836 [debug] [Thread-2 (]: Writing injected SQL for node "test.datatrust_os.impossible_trip_timestamps"
+[0m14:14:57.331836 [debug] [Thread-3 (]: Writing injected SQL for node "test.datatrust_os.negative_fare_amount"
+[0m14:14:57.347544 [debug] [Thread-4 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052"
+[0m14:14:57.347544 [debug] [Thread-1 (]: Began executing node test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd
+[0m14:14:57.347544 [debug] [Thread-4 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052
+[0m14:14:57.367555 [debug] [Thread-1 (]: Writing runtime sql for node "test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd"
+[0m14:14:57.367555 [debug] [Thread-2 (]: Began executing node test.datatrust_os.impossible_trip_timestamps
+[0m14:14:57.369080 [debug] [Thread-3 (]: Began executing node test.datatrust_os.negative_fare_amount
+[0m14:14:57.400854 [debug] [Thread-4 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052"
+[0m14:14:57.402854 [debug] [Thread-2 (]: Writing runtime sql for node "test.datatrust_os.impossible_trip_timestamps"
+[0m14:14:57.405850 [debug] [Thread-3 (]: Writing runtime sql for node "test.datatrust_os.negative_fare_amount"
+[0m14:14:57.405850 [debug] [Thread-1 (]: Using postgres connection "test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd"
+[0m14:14:57.406852 [debug] [Thread-1 (]: On test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        source_system as value_field,
+        count(*) as n_records
+
+    from "datatrust_os"."staging"."stg_yellow_trips"
+    group by source_system
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'yellow'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:57.407862 [debug] [Thread-4 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052"
+[0m14:14:57.407862 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:14:57.407862 [debug] [Thread-3 (]: Using postgres connection "test.datatrust_os.negative_fare_amount"
+[0m14:14:57.408869 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select dropoff_datetime
+from "datatrust_os"."staging"."stg_yellow_trips"
+where dropoff_datetime is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:57.408869 [debug] [Thread-2 (]: Using postgres connection "test.datatrust_os.impossible_trip_timestamps"
+[0m14:14:57.409871 [debug] [Thread-3 (]: On test.datatrust_os.negative_fare_amount: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.negative_fare_amount"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  select *
+from "datatrust_os"."staging"."stg_yellow_trips"
+where fare_amount < 0
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:57.409871 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m14:14:57.409871 [debug] [Thread-2 (]: On test.datatrust_os.impossible_trip_timestamps: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.impossible_trip_timestamps"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  select *
+from "datatrust_os"."staging"."stg_yellow_trips"
+where dropoff_datetime < pickup_datetime
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:57.409871 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m14:14:57.409871 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m14:14:57.441393 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.045 seconds
+[0m14:14:57.457810 [debug] [Thread-1 (]: On test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd: ROLLBACK
+[0m14:14:57.457810 [debug] [Thread-1 (]: On test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd: Close
+[0m14:14:57.460303 [info ] [Thread-1 (]: 1 of 12 PASS accepted_values_stg_yellow_trips_source_system__yellow ............ [[32mPASS[0m in 0.14s]
+[0m14:14:57.464809 [debug] [Thread-1 (]: Finished running node test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd
+[0m14:14:57.465676 [debug] [Thread-1 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048
+[0m14:14:57.465676 [info ] [Thread-1 (]: 5 of 12 START test not_null_stg_yellow_trips_dropoff_location_id ............... [RUN]
+[0m14:14:57.472803 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.datatrust_os.accepted_values_stg_yellow_trips_source_system__yellow.115d78c5fd, now test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048)
+[0m14:14:57.472803 [debug] [Thread-1 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048
+[0m14:14:57.478823 [debug] [Thread-1 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048"
+[0m14:14:57.480831 [debug] [Thread-1 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048
+[0m14:14:57.482838 [debug] [Thread-1 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048"
+[0m14:14:57.484844 [debug] [Thread-1 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048"
+[0m14:14:57.484844 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select dropoff_location_id
+from "datatrust_os"."staging"."stg_yellow_trips"
+where dropoff_location_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:57.484844 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:14:58.591445 [debug] [Thread-2 (]: SQL status: SELECT 1 in 1.180 seconds
+[0m14:14:58.593449 [debug] [Thread-2 (]: On test.datatrust_os.impossible_trip_timestamps: ROLLBACK
+[0m14:14:58.593449 [debug] [Thread-2 (]: On test.datatrust_os.impossible_trip_timestamps: Close
+[0m14:14:58.595512 [error] [Thread-2 (]: 2 of 12 FAIL 3 impossible_trip_timestamps ...................................... [[31mFAIL 3[0m in 1.28s]
+[0m14:14:58.600383 [debug] [Thread-2 (]: Finished running node test.datatrust_os.impossible_trip_timestamps
+[0m14:14:58.600383 [debug] [Thread-2 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97
+[0m14:14:58.601381 [info ] [Thread-2 (]: 6 of 12 START test not_null_stg_yellow_trips_fare_amount ....................... [RUN]
+[0m14:14:58.604385 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.datatrust_os.impossible_trip_timestamps, now test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97)
+[0m14:14:58.605452 [debug] [Thread-2 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97
+[0m14:14:58.610704 [debug] [Thread-2 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97"
+[0m14:14:58.611704 [debug] [Thread-4 (]: SQL status: SELECT 1 in 1.201 seconds
+[0m14:14:58.613208 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052: ROLLBACK
+[0m14:14:58.613208 [debug] [Thread-2 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97
+[0m14:14:58.615321 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052: Close
+[0m14:14:58.619335 [debug] [Thread-2 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97"
+[0m14:14:58.621344 [debug] [Thread-2 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97"
+[0m14:14:58.621344 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select fare_amount
+from "datatrust_os"."staging"."stg_yellow_trips"
+where fare_amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:58.619335 [info ] [Thread-4 (]: 4 of 12 PASS not_null_stg_yellow_trips_dropoff_datetime ........................ [[32mPASS[0m in 1.30s]
+[0m14:14:58.623350 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m14:14:58.624133 [debug] [Thread-4 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052
+[0m14:14:58.624934 [debug] [Thread-4 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed
+[0m14:14:58.624934 [info ] [Thread-4 (]: 7 of 12 START test not_null_stg_yellow_trips_pickup_datetime ................... [RUN]
+[0m14:14:58.624934 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_dropoff_datetime.369e989052, now test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed)
+[0m14:14:58.626943 [debug] [Thread-4 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed
+[0m14:14:58.633000 [debug] [Thread-4 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed"
+[0m14:14:58.633000 [debug] [Thread-4 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed
+[0m14:14:58.638015 [debug] [Thread-4 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed"
+[0m14:14:58.638534 [debug] [Thread-4 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed"
+[0m14:14:58.638534 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select pickup_datetime
+from "datatrust_os"."staging"."stg_yellow_trips"
+where pickup_datetime is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:58.640539 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m14:14:58.959185 [debug] [Thread-3 (]: SQL status: SELECT 1 in 1.549 seconds
+[0m14:14:58.961984 [debug] [Thread-3 (]: On test.datatrust_os.negative_fare_amount: ROLLBACK
+[0m14:14:58.961984 [debug] [Thread-3 (]: On test.datatrust_os.negative_fare_amount: Close
+[0m14:14:58.963990 [error] [Thread-3 (]: 3 of 12 FAIL 25049 negative_fare_amount ........................................ [[31mFAIL 25049[0m in 1.65s]
+[0m14:14:58.965996 [debug] [Thread-3 (]: Finished running node test.datatrust_os.negative_fare_amount
+[0m14:14:58.965996 [debug] [Thread-3 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1
+[0m14:14:58.965996 [info ] [Thread-3 (]: 8 of 12 START test not_null_stg_yellow_trips_pickup_location_id ................ [RUN]
+[0m14:14:58.969238 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.datatrust_os.negative_fare_amount, now test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1)
+[0m14:14:58.969238 [debug] [Thread-3 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1
+[0m14:14:58.975000 [debug] [Thread-3 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1"
+[0m14:14:58.976298 [debug] [Thread-3 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1
+[0m14:14:58.980240 [debug] [Thread-3 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1"
+[0m14:14:58.981712 [debug] [Thread-3 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1"
+[0m14:14:58.981712 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select pickup_location_id
+from "datatrust_os"."staging"."stg_yellow_trips"
+where pickup_location_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:58.983217 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m14:14:59.172351 [debug] [Thread-1 (]: SQL status: SELECT 1 in 1.686 seconds
+[0m14:14:59.173657 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048: ROLLBACK
+[0m14:14:59.175129 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048: Close
+[0m14:14:59.176196 [info ] [Thread-1 (]: 5 of 12 PASS not_null_stg_yellow_trips_dropoff_location_id ..................... [[32mPASS[0m in 1.70s]
+[0m14:14:59.178249 [debug] [Thread-1 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048
+[0m14:14:59.178249 [debug] [Thread-1 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b
+[0m14:14:59.179723 [info ] [Thread-1 (]: 9 of 12 START test not_null_stg_yellow_trips_source_system ..................... [RUN]
+[0m14:14:59.179723 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_dropoff_location_id.19a28c5048, now test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b)
+[0m14:14:59.181225 [debug] [Thread-1 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b
+[0m14:14:59.186799 [debug] [Thread-1 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b"
+[0m14:14:59.189141 [debug] [Thread-1 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b
+[0m14:14:59.193976 [debug] [Thread-1 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b"
+[0m14:14:59.195336 [debug] [Thread-1 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b"
+[0m14:14:59.196343 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select source_system
+from "datatrust_os"."staging"."stg_yellow_trips"
+where source_system is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.196343 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:14:59.243111 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.046 seconds
+[0m14:14:59.245112 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b: ROLLBACK
+[0m14:14:59.246266 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b: Close
+[0m14:14:59.247273 [info ] [Thread-1 (]: 9 of 12 PASS not_null_stg_yellow_trips_source_system ........................... [[32mPASS[0m in 0.07s]
+[0m14:14:59.249779 [debug] [Thread-1 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b
+[0m14:14:59.249779 [debug] [Thread-1 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6
+[0m14:14:59.251105 [info ] [Thread-1 (]: 10 of 12 START test not_null_stg_yellow_trips_total_amount ..................... [RUN]
+[0m14:14:59.252114 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_source_system.9819a90a7b, now test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6)
+[0m14:14:59.252114 [debug] [Thread-1 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6
+[0m14:14:59.258804 [debug] [Thread-1 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6"
+[0m14:14:59.259805 [debug] [Thread-1 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6
+[0m14:14:59.263643 [debug] [Thread-1 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6"
+[0m14:14:59.264977 [debug] [Thread-1 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6"
+[0m14:14:59.264977 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select total_amount
+from "datatrust_os"."staging"."stg_yellow_trips"
+where total_amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.264977 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:15:00.127368 [debug] [Thread-4 (]: SQL status: SELECT 1 in 1.488 seconds
+[0m14:15:00.130834 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed: ROLLBACK
+[0m14:15:00.131844 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed: Close
+[0m14:15:00.132843 [info ] [Thread-4 (]: 7 of 12 PASS not_null_stg_yellow_trips_pickup_datetime ......................... [[32mPASS[0m in 1.51s]
+[0m14:15:00.135354 [debug] [Thread-4 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed
+[0m14:15:00.135354 [debug] [Thread-4 (]: Began running node test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1
+[0m14:15:00.136804 [info ] [Thread-4 (]: 11 of 12 START test not_null_stg_yellow_trips_trip_id .......................... [RUN]
+[0m14:15:00.138125 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_pickup_datetime.069acef7ed, now test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1)
+[0m14:15:00.138125 [debug] [Thread-4 (]: Began compiling node test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1
+[0m14:15:00.143011 [debug] [Thread-4 (]: Writing injected SQL for node "test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1"
+[0m14:15:00.144294 [debug] [Thread-4 (]: Began executing node test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1
+[0m14:15:00.144294 [debug] [Thread-4 (]: Writing runtime sql for node "test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1"
+[0m14:15:00.144294 [debug] [Thread-4 (]: Using postgres connection "test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1"
+[0m14:15:00.144294 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select trip_id
+from "datatrust_os"."staging"."stg_yellow_trips"
+where trip_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:15:00.144294 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m14:15:00.455577 [debug] [Thread-2 (]: SQL status: SELECT 1 in 1.832 seconds
+[0m14:15:00.457951 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97: ROLLBACK
+[0m14:15:00.458959 [debug] [Thread-2 (]: On test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97: Close
+[0m14:15:00.459958 [info ] [Thread-2 (]: 6 of 12 PASS not_null_stg_yellow_trips_fare_amount ............................. [[32mPASS[0m in 1.86s]
+[0m14:15:00.463957 [debug] [Thread-2 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97
+[0m14:15:00.464957 [debug] [Thread-2 (]: Began running node test.datatrust_os.pickup_outside_file_month
+[0m14:15:00.464957 [info ] [Thread-2 (]: 12 of 12 START test pickup_outside_file_month .................................. [RUN]
+[0m14:15:00.472393 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.datatrust_os.not_null_stg_yellow_trips_fare_amount.7dfa275a97, now test.datatrust_os.pickup_outside_file_month)
+[0m14:15:00.472393 [debug] [Thread-2 (]: Began compiling node test.datatrust_os.pickup_outside_file_month
+[0m14:15:00.476613 [debug] [Thread-2 (]: Writing injected SQL for node "test.datatrust_os.pickup_outside_file_month"
+[0m14:15:00.476613 [debug] [Thread-2 (]: Began executing node test.datatrust_os.pickup_outside_file_month
+[0m14:15:00.480622 [debug] [Thread-2 (]: Writing runtime sql for node "test.datatrust_os.pickup_outside_file_month"
+[0m14:15:00.482101 [debug] [Thread-2 (]: Using postgres connection "test.datatrust_os.pickup_outside_file_month"
+[0m14:15:00.483249 [debug] [Thread-2 (]: On test.datatrust_os.pickup_outside_file_month: /* {"app": "dbt", "dbt_version": "1.12.0b1", "profile_name": "datatrust_os", "target_name": "dev", "node_id": "test.datatrust_os.pickup_outside_file_month"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  select *
+from "datatrust_os"."staging"."stg_yellow_trips"
+where pickup_datetime < '2023-01-01'
+   or pickup_datetime >= '2023-02-01'
+  
+  
+      
+    ) dbt_internal_test
+[0m14:15:00.483249 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m14:15:00.531807 [debug] [Thread-3 (]: SQL status: SELECT 1 in 1.549 seconds
+[0m14:15:00.533810 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1: ROLLBACK
+[0m14:15:00.535813 [debug] [Thread-3 (]: On test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1: Close
+[0m14:15:00.537817 [info ] [Thread-3 (]: 8 of 12 PASS not_null_stg_yellow_trips_pickup_location_id ...................... [[32mPASS[0m in 1.57s]
+[0m14:15:00.539822 [debug] [Thread-3 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1
+[0m14:15:01.287609 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.805 seconds
+[0m14:15:01.289614 [debug] [Thread-2 (]: On test.datatrust_os.pickup_outside_file_month: ROLLBACK
+[0m14:15:01.289614 [debug] [Thread-2 (]: On test.datatrust_os.pickup_outside_file_month: Close
+[0m14:15:01.292894 [error] [Thread-2 (]: 12 of 12 FAIL 48 pickup_outside_file_month ..................................... [[31mFAIL 48[0m in 0.82s]
+[0m14:15:01.294899 [debug] [Thread-2 (]: Finished running node test.datatrust_os.pickup_outside_file_month
+[0m14:15:01.632778 [debug] [Thread-1 (]: SQL status: SELECT 1 in 2.369 seconds
+[0m14:15:01.632778 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6: ROLLBACK
+[0m14:15:01.632778 [debug] [Thread-1 (]: On test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6: Close
+[0m14:15:01.632778 [info ] [Thread-1 (]: 10 of 12 PASS not_null_stg_yellow_trips_total_amount ........................... [[32mPASS[0m in 2.38s]
+[0m14:15:01.632778 [debug] [Thread-1 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6
+[0m14:15:03.565574 [debug] [Thread-4 (]: SQL status: SELECT 1 in 3.424 seconds
+[0m14:15:03.565574 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1: ROLLBACK
+[0m14:15:03.565574 [debug] [Thread-4 (]: On test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1: Close
+[0m14:15:03.565574 [info ] [Thread-4 (]: 11 of 12 PASS not_null_stg_yellow_trips_trip_id ................................ [[32mPASS[0m in 3.43s]
+[0m14:15:03.565574 [debug] [Thread-4 (]: Finished running node test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1
+[0m14:15:03.575416 [debug] [MainThread]: On master: COMMIT
+[0m14:15:03.575416 [debug] [MainThread]: Using postgres connection "master"
+[0m14:15:03.575416 [debug] [MainThread]: On master: COMMIT
+[0m14:15:03.577427 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:15:03.602568 [debug] [MainThread]: SQL status: COMMIT in 0.029 seconds
+[0m14:15:03.602568 [debug] [MainThread]: On master: Close
+[0m14:15:03.602568 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:15:03.602568 [debug] [MainThread]: Connection 'list_datatrust_os_staging' was properly closed.
+[0m14:15:03.602568 [debug] [MainThread]: Connection 'test.datatrust_os.not_null_stg_yellow_trips_total_amount.64a0bc33f6' was properly closed.
+[0m14:15:03.602568 [debug] [MainThread]: Connection 'test.datatrust_os.pickup_outside_file_month' was properly closed.
+[0m14:15:03.602568 [debug] [MainThread]: Connection 'test.datatrust_os.not_null_stg_yellow_trips_pickup_location_id.cf34a865b1' was properly closed.
+[0m14:15:03.602568 [debug] [MainThread]: Connection 'test.datatrust_os.not_null_stg_yellow_trips_trip_id.cf5e2695a1' was properly closed.
+[0m14:15:03.602568 [info ] [MainThread]: 
+[0m14:15:03.602568 [info ] [MainThread]: Finished running 12 data tests in 0 hours 0 minutes and 6.45 seconds (6.45s).
+[0m14:15:03.602568 [debug] [MainThread]: Command end result
+[0m14:15:03.633441 [debug] [MainThread]: Wrote artifact WritableManifest to D:\datatrust-os\dbt_project\target\manifest.json
+[0m14:15:03.636442 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\datatrust-os\dbt_project\target\semantic_manifest.json
+[0m14:15:03.643873 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\datatrust-os\dbt_project\target\run_results.json
+[0m14:15:03.643873 [info ] [MainThread]: 
+[0m14:15:03.645091 [info ] [MainThread]: [31mCompleted with 3 errors, 0 partial successes, and 0 warnings:[0m
+[0m14:15:03.645091 [info ] [MainThread]: 
+[0m14:15:03.645091 [error] [MainThread]: [[31mERROR[0m]: in test impossible_trip_timestamps (tests\impossible_trip_timestamps.sql)
+[0m14:15:03.645091 [error] [MainThread]:   Got 3 results, configured to fail if != 0
+[0m14:15:03.646870 [info ] [MainThread]: 
+[0m14:15:03.646870 [info ] [MainThread]:   compiled code at target\compiled\datatrust_os\tests\impossible_trip_timestamps.sql
+[0m14:15:03.646870 [info ] [MainThread]: 
+[0m14:15:03.646870 [error] [MainThread]: [[31mERROR[0m]: in test negative_fare_amount (tests\negative_fare_amount.sql)
+[0m14:15:03.646870 [error] [MainThread]:   Got 25049 results, configured to fail if != 0
+[0m14:15:03.646870 [info ] [MainThread]: 
+[0m14:15:03.646870 [info ] [MainThread]:   compiled code at target\compiled\datatrust_os\tests\negative_fare_amount.sql
+[0m14:15:03.646870 [info ] [MainThread]: 
+[0m14:15:03.646870 [error] [MainThread]: [[31mERROR[0m]: in test pickup_outside_file_month (tests\pickup_outside_file_month.sql)
+[0m14:15:03.646870 [error] [MainThread]:   Got 48 results, configured to fail if != 0
+[0m14:15:03.646870 [info ] [MainThread]: 
+[0m14:15:03.646870 [info ] [MainThread]:   compiled code at target\compiled\datatrust_os\tests\pickup_outside_file_month.sql
+[0m14:15:03.646870 [info ] [MainThread]: 
+[0m14:15:03.646870 [info ] [MainThread]: Done. PASS=9 WARN=0 ERROR=3 SKIP=0 NO-OP=0 TOTAL=12
+[0m14:15:03.646870 [debug] [MainThread]: Command `dbt test` failed at 14:15:03.646870 after 7.57 seconds
+[0m14:15:03.646870 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C3495815E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C349580530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C349164860>]}
+[0m14:15:03.646870 [debug] [MainThread]: Flushing usage events
+[0m14:15:03.972530 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: stg_yellow_trips
+    description: "Canonical staging model for NYC TLC Yellow Taxi trips."
+
+    columns:
+      - name: trip_id
+        description: "Deterministic hash identifier for a trip record."
+        tests:
+          - not_null
+
+      - name: source_system
+        description: "Source system label. Expected value: yellow."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['yellow']
+
+      - name: pickup_datetime
+        description: "Normalized pickup timestamp."
+        tests:
+          - not_null
+
+      - name: dropoff_datetime
+        description: "Normalized dropoff timestamp."
+        tests:
+          - not_null
+
+      - name: pickup_location_id
+        description: "Pickup taxi zone identifier."
+        tests:
+          - not_null
+
+      - name: dropoff_location_id
+        description: "Dropoff taxi zone identifier."
+        tests:
+          - not_null
+
+      - name: fare_amount
+        description: "Base fare amount before extras, taxes, tips, and tolls."
+        tests:
+          - not_null
+
+      - name: total_amount
+        description: "Total charged amount for the trip."
+        tests:
+          - not_null
