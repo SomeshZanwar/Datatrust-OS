@@ -91,6 +91,59 @@ def trust_score():
     render_trust_scores()
 
 
+@app.command("incidents")
+def incidents():
+    engine = get_engine()
+
+    query = text(
+        """
+        SELECT
+            incident_id,
+            severity,
+            asset_name,
+            incident_type,
+            failure_count,
+            status,
+            last_seen_at
+        FROM governance.governance_incidents
+        WHERE status = 'OPEN'
+        ORDER BY
+            CASE severity
+                WHEN 'CRITICAL' THEN 1
+                WHEN 'HIGH' THEN 2
+                WHEN 'MEDIUM' THEN 3
+                WHEN 'LOW' THEN 4
+                ELSE 5
+            END,
+            last_seen_at DESC;
+        """
+    )
+
+    with engine.connect() as conn:
+        rows = conn.execute(query).fetchall()
+
+    table = Table(title="Open Governance Incidents")
+    table.add_column("ID")
+    table.add_column("Severity")
+    table.add_column("Asset")
+    table.add_column("Type")
+    table.add_column("Failures")
+    table.add_column("Status")
+    table.add_column("Last Seen")
+
+    for row in rows:
+        table.add_row(
+            str(row.incident_id),
+            row.severity,
+            row.asset_name,
+            row.incident_type,
+            str(row.failure_count),
+            row.status,
+            str(row.last_seen_at),
+        )
+
+    console.print(table)
+
 @app.command("run-pipeline")
 def run_pipeline():
     run_command(
@@ -105,6 +158,8 @@ def run_pipeline():
     )
 
     run_command([sys.executable, "src\\trust\\scorer.py"], cwd=PROJECT_ROOT)
+
+    run_command([sys.executable, "src\\policy\\incident_reporter.py"], cwd=PROJECT_ROOT)
 
     render_trust_scores()
 
