@@ -23,3 +23,26 @@ SELECT
     source_artifact
 FROM ranked_scores
 WHERE score_rank = 1;
+
+CREATE TABLE IF NOT EXISTS governance.governance_incidents (
+    incident_id SERIAL PRIMARY KEY,
+
+    incident_key TEXT NOT NULL,
+    asset_name TEXT NOT NULL,
+    incident_type TEXT NOT NULL,
+    severity TEXT NOT NULL,
+
+    test_name TEXT,
+    failure_count INTEGER,
+    violation_detail TEXT,
+
+    status TEXT NOT NULL DEFAULT 'OPEN',
+    detected_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    last_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    resolved_at TIMESTAMPTZ,
+
+    source_artifact TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+    CONSTRAINT unique_open_incident UNIQUE (incident_key, status)
+);
