@@ -1,4 +1,7 @@
 import os
+import subprocess
+import sys
+from pathlib import Path
 
 import typer
 from dotenv import load_dotenv
@@ -8,6 +11,9 @@ from sqlalchemy import create_engine, text
 
 app = typer.Typer()
 console = Console()
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DBT_PROJECT_DIR = PROJECT_ROOT / "dbt_project"
 
 
 def get_engine():
@@ -24,8 +30,23 @@ def get_engine():
     )
 
 
-@app.command("trust-score")
-def trust_score():
+def run_command(command: list[str], cwd: Path | None = None, allow_failure: bool = False):
+    console.print(f"\n[bold]Running:[/bold] {' '.join(command)}")
+
+    result = subprocess.run(
+        command,
+        cwd=cwd,
+        text=True,
+        shell=False,
+    )
+
+    if result.returncode != 0 and not allow_failure:
+        raise typer.Exit(result.returncode)
+
+    return result.returncode
+
+
+def render_trust_scores():
     engine = get_engine()
 
     query = text(
@@ -63,6 +84,29 @@ def trust_score():
         )
 
     console.print(table)
+
+
+@app.command("trust-score")
+def trust_score():
+    render_trust_scores()
+
+
+@app.command("run-pipeline")
+def run_pipeline():
+    run_command(
+        ["dbt", "run", "--select", "stg_yellow_trips", "--profiles-dir", "."],
+        cwd=DBT_PROJECT_DIR,
+    )
+
+    run_command(
+        ["dbt", "test", "--select", "stg_yellow_trips", "--profiles-dir", "."],
+        cwd=DBT_PROJECT_DIR,
+        allow_failure=True,
+    )
+
+    run_command([sys.executable, "src\\trust\\scorer.py"], cwd=PROJECT_ROOT)
+
+    render_trust_scores()
 
 
 if __name__ == "__main__":
