@@ -144,6 +144,53 @@ def incidents():
 
     console.print(table)
 
+@app.command("governance-summary")
+def governance_summary():
+    engine = get_engine()
+
+    summary_query = text(
+        """
+        SELECT
+            COUNT(*) FILTER (WHERE status = 'OPEN') AS open_incidents,
+            COUNT(DISTINCT asset_name) FILTER (WHERE status = 'OPEN') AS affected_assets,
+            ROUND(
+    AVG(incident_age_hours) FILTER (WHERE status = 'OPEN'),
+    2
+) AS avg_open_age_hours
+        FROM marts.fct_governance_incidents;
+        """
+    )
+
+    severity_query = text(
+        """
+        SELECT
+            severity,
+            COUNT(*) AS incident_count
+        FROM marts.fct_governance_incidents
+        WHERE status = 'OPEN'
+        GROUP BY severity, severity_rank
+        ORDER BY severity_rank;
+        """
+    )
+
+    with engine.connect() as conn:
+        summary = conn.execute(summary_query).one()
+        severity_rows = conn.execute(severity_query).fetchall()
+
+    console.print("\n[bold]Governance Health Summary[/bold]")
+    console.print(f"Open incidents: {summary.open_incidents}")
+    console.print(f"Affected assets: {summary.affected_assets}")
+    console.print(f"Average open age: {summary.avg_open_age_hours} hours")
+
+    table = Table(title="Open Incidents by Severity")
+    table.add_column("Severity")
+    table.add_column("Count")
+
+    for row in severity_rows:
+        table.add_row(row.severity, str(row.incident_count))
+
+    console.print(table)
+
 @app.command("run-pipeline")
 def run_pipeline():
     run_command(
