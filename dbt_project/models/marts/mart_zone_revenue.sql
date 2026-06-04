@@ -81,9 +81,8 @@ final as (
         zone_revenue.pickup_date,
         zone_revenue.pickup_location_id,
 
-        -- Zone lookup will be added after we load the TLC zone seed.
-        null::text as zone_name,
-        null::text as borough,
+        zone_lookup."Zone" as zone_name,
+        zone_lookup."Borough" as borough,
 
         zone_revenue.trip_count,
         zone_revenue.total_revenue,
@@ -102,6 +101,8 @@ final as (
         ) }} as data_reliability_status
 
     from zone_revenue
+    left join raw.taxi_zone_lookup as zone_lookup
+        on zone_revenue.pickup_location_id = zone_lookup."LocationID"
     cross join governance_context
 
 )
