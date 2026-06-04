@@ -191,6 +191,60 @@ def governance_summary():
 
     console.print(table)
 
+@app.command("zone-revenue")
+def zone_revenue(limit: int = 10):
+    engine = get_engine()
+
+    query = text(
+        """
+        SELECT
+            pickup_date,
+            pickup_location_id,
+            trip_count,
+            ROUND(total_revenue::numeric, 2) AS total_revenue,
+            ROUND(avg_fare::numeric, 2) AS avg_fare,
+            ROUND(avg_trip_distance::numeric, 2) AS avg_trip_distance,
+            trust_label,
+            open_incident_count,
+            highest_open_severity,
+            data_reliability_status
+        FROM marts.mart_zone_revenue
+        ORDER BY trip_count DESC
+        LIMIT :limit;
+        """
+    )
+
+    with engine.connect() as conn:
+        rows = conn.execute(query, {"limit": limit}).fetchall()
+
+    table = Table(title="Zone Revenue with Data Reliability Context")
+    table.add_column("Date")
+    table.add_column("Pickup Zone")
+    table.add_column("Trips")
+    table.add_column("Revenue")
+    table.add_column("Avg Fare")
+    table.add_column("Avg Distance")
+    table.add_column("Trust")
+    table.add_column("Incidents")
+    table.add_column("Highest Severity")
+    table.add_column("Reliability Status")
+
+    for row in rows:
+        table.add_row(
+            str(row.pickup_date),
+            str(row.pickup_location_id),
+            str(row.trip_count),
+            f"${row.total_revenue}",
+            f"${row.avg_fare}",
+            str(row.avg_trip_distance),
+            row.trust_label,
+            str(row.open_incident_count),
+            row.highest_open_severity,
+            row.data_reliability_status,
+        )
+
+    console.print(table)
+
 @app.command("run-pipeline")
 def run_pipeline():
     run_command(
