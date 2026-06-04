@@ -46,3 +46,18 @@ CREATE TABLE IF NOT EXISTS governance.governance_incidents (
 
     CONSTRAINT unique_open_incident UNIQUE (incident_key, status)
 );
+
+
+CREATE TABLE IF NOT EXISTS lineage.asset_lineage (
+    lineage_id SERIAL PRIMARY KEY,
+
+    parent_asset TEXT NOT NULL,
+    parent_asset_type TEXT NOT NULL,
+
+    child_asset TEXT NOT NULL,
+    child_asset_type TEXT NOT NULL,
+
+    relationship_type TEXT NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
