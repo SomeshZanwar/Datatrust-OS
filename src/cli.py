@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
 from sqlalchemy import create_engine, text
+from src.lineage.blast_radius import analyze_blast_radius
 
 app = typer.Typer()
 console = Console()
@@ -241,6 +242,34 @@ def zone_revenue(limit: int = 10):
             str(row.open_incident_count),
             row.highest_open_severity,
             row.data_reliability_status,
+        )
+
+    console.print(table)
+
+@app.command("blast-radius")
+def blast_radius(asset_name: str):
+    rows = analyze_blast_radius(asset_name)
+
+    table = Table(title=f"Blast Radius — {asset_name}")
+    table.add_column("Depth")
+    table.add_column("Affected Asset")
+    table.add_column("Type")
+    table.add_column("Relationship")
+    table.add_column("Trust")
+    table.add_column("Open Incidents")
+    table.add_column("Highest Severity")
+    table.add_column("Reliability Status")
+
+    for row in rows:
+        table.add_row(
+            str(row.depth),
+            row.child_asset,
+            row.child_asset_type,
+            row.relationship_type,
+            row.trust_label or "N/A",
+            str(row.open_incident_count or 0),
+            row.highest_open_severity or "N/A",
+            row.data_reliability_status or "N/A",
         )
 
     console.print(table)
