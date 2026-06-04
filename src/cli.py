@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
 from sqlalchemy import create_engine, text
+
 from src.lineage.blast_radius import analyze_blast_radius
 
 app = typer.Typer()
@@ -145,6 +146,7 @@ def incidents():
 
     console.print(table)
 
+
 @app.command("governance-summary")
 def governance_summary():
     engine = get_engine()
@@ -155,9 +157,9 @@ def governance_summary():
             COUNT(*) FILTER (WHERE status = 'OPEN') AS open_incidents,
             COUNT(DISTINCT asset_name) FILTER (WHERE status = 'OPEN') AS affected_assets,
             ROUND(
-    AVG(incident_age_hours) FILTER (WHERE status = 'OPEN'),
-    2
-) AS avg_open_age_hours
+                AVG(incident_age_hours) FILTER (WHERE status = 'OPEN'),
+                2
+            ) AS avg_open_age_hours
         FROM marts.fct_governance_incidents;
         """
     )
@@ -192,6 +194,7 @@ def governance_summary():
 
     console.print(table)
 
+
 @app.command("zone-revenue")
 def zone_revenue(limit: int = 10):
     engine = get_engine()
@@ -201,10 +204,10 @@ def zone_revenue(limit: int = 10):
         SELECT
             pickup_date,
             pickup_location_id,
+            zone_name,
+            borough,
             trip_count,
             ROUND(total_revenue::numeric, 2) AS total_revenue,
-            ROUND(avg_fare::numeric, 2) AS avg_fare,
-            ROUND(avg_trip_distance::numeric, 2) AS avg_trip_distance,
             trust_label,
             open_incident_count,
             highest_open_severity,
@@ -220,24 +223,24 @@ def zone_revenue(limit: int = 10):
 
     table = Table(title="Zone Revenue with Data Reliability Context")
     table.add_column("Date")
-    table.add_column("Pickup Zone")
+    table.add_column("Zone")
+    table.add_column("Borough")
     table.add_column("Trips")
     table.add_column("Revenue")
-    table.add_column("Avg Fare")
-    table.add_column("Avg Distance")
     table.add_column("Trust")
     table.add_column("Incidents")
-    table.add_column("Highest Severity")
-    table.add_column("Reliability Status")
+    table.add_column("Severity")
+    table.add_column("Status")
 
     for row in rows:
+        zone_label = f"{row.pickup_location_id} - {row.zone_name or 'Unknown'}"
+
         table.add_row(
             str(row.pickup_date),
-            str(row.pickup_location_id),
+            zone_label,
+            row.borough or "Unknown",
             str(row.trip_count),
             f"${row.total_revenue}",
-            f"${row.avg_fare}",
-            str(row.avg_trip_distance),
             row.trust_label,
             str(row.open_incident_count),
             row.highest_open_severity,
@@ -245,6 +248,7 @@ def zone_revenue(limit: int = 10):
         )
 
     console.print(table)
+
 
 @app.command("blast-radius")
 def blast_radius(asset_name: str):
@@ -273,6 +277,7 @@ def blast_radius(asset_name: str):
         )
 
     console.print(table)
+
 
 @app.command("run-pipeline")
 def run_pipeline():
