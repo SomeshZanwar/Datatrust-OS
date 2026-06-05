@@ -11,3 +11,4 @@ rich
 anthropic
 great-expectations
 apache-airflow
+pyyaml

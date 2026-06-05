@@ -1,0 +1,16 @@
+policies:
+  - policy_name: critical_upstream_incident_blocks_metric
+    description: "A metric mart should not be used when a critical unresolved upstream incident exists."
+    applies_to_asset_type: dbt_model
+    decision: BLOCKED
+    severity: CRITICAL
+    rules:
+      highest_open_severity: CRITICAL
+
+  - policy_name: degraded_metric_requires_caution
+    description: "A metric mart with degraded trust should be used with caution unless a critical issue blocks it."
+    applies_to_asset_type: dbt_model
+    decision: USE_WITH_CAUTION
+    severity: WARNING
+    rules:
+      trust_label: DEGRADED

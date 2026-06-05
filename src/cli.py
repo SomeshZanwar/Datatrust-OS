@@ -10,6 +10,7 @@ from rich.table import Table
 from sqlalchemy import create_engine, text
 
 from src.lineage.blast_radius import analyze_blast_radius
+from src.policy.policy_evaluator import evaluate_policies
 
 app = typer.Typer()
 console = Console()
@@ -278,6 +279,31 @@ def blast_radius(asset_name: str):
 
     console.print(table)
 
+@app.command("evaluate-policies")
+def evaluate_policy_results():
+    decisions = evaluate_policies()
+
+    table = Table(title="Policy Evaluation Results")
+    table.add_column("Asset")
+    table.add_column("Policy")
+    table.add_column("Decision")
+    table.add_column("Severity")
+    table.add_column("Trust")
+    table.add_column("Highest Incident")
+    table.add_column("Reliability Status")
+
+    for decision in decisions:
+        table.add_row(
+            decision["asset_name"],
+            decision["policy_name"],
+            decision["decision"],
+            decision["severity"],
+            decision["trust_label"],
+            decision["highest_open_severity"],
+            decision["data_reliability_status"],
+        )
+
+    console.print(table)
 
 @app.command("run-pipeline")
 def run_pipeline():
