@@ -322,6 +322,31 @@ def run_pipeline():
 
     run_command([sys.executable, "src\\policy\\incident_reporter.py"], cwd=PROJECT_ROOT)
 
+    console.print("\n[bold]Evaluating policies...[/bold]")
+    decisions = evaluate_policies()
+
+    policy_table = Table(title="Policy Evaluation Results")
+    policy_table.add_column("Asset")
+    policy_table.add_column("Policy")
+    policy_table.add_column("Decision")
+    policy_table.add_column("Severity")
+    policy_table.add_column("Trust")
+    policy_table.add_column("Highest Incident")
+    policy_table.add_column("Reliability Status")
+
+    for decision in decisions:  
+        policy_table.add_row(
+            decision["asset_name"],
+            decision["policy_name"],
+            decision["decision"],
+            decision["severity"],
+            decision["trust_label"],
+            decision["highest_open_severity"],
+            decision["data_reliability_status"],
+        )
+
+    console.print(policy_table)
+
     render_trust_scores()
 
 
