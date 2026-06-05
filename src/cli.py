@@ -321,7 +321,18 @@ def run_pipeline():
     run_command([sys.executable, "src\\trust\\scorer.py"], cwd=PROJECT_ROOT)
 
     run_command([sys.executable, "src\\policy\\incident_reporter.py"], cwd=PROJECT_ROOT)
-
+    run_command(
+    [
+        "dbt",
+        "run",
+        "--select",
+        "mart_zone_revenue",
+        "fct_governance_incidents",
+        "--profiles-dir",
+        ".",
+    ],
+    cwd=DBT_PROJECT_DIR,
+)
     console.print("\n[bold]Evaluating policies...[/bold]")
     decisions = evaluate_policies()
 
