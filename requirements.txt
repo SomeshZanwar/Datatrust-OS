@@ -12,3 +12,5 @@ anthropic
 great-expectations
 apache-airflow
 pyyaml
+plotly
+sqlalchemy
