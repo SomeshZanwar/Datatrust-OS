@@ -271,6 +271,68 @@ def section_header(title: str, caption: str):
     )
 
 
+def render_lineage_graph():
+    dot = """
+    digraph DataTrustLineage {
+        graph [
+            rankdir=LR,
+            bgcolor="transparent",
+            pad="0.35",
+            nodesep="0.7",
+            ranksep="0.9"
+        ];
+
+        node [
+            shape=box,
+            style="rounded,filled",
+            fontname="Arial",
+            fontsize=12,
+            margin="0.18,0.12",
+            color="#334155",
+            penwidth=1.4
+        ];
+
+        edge [
+            color="#f59e0b",
+            penwidth=2.2,
+            arrowsize=0.8,
+            fontname="Arial",
+            fontsize=10,
+            fontcolor="#cbd5e1"
+        ];
+
+        raw [
+            label="raw.yellow_trips\\nRaw trip data",
+            fillcolor="#0f172a",
+            fontcolor="#e2e8f0"
+        ];
+
+        staging [
+            label="staging.stg_yellow_trips\\nGovernance-tested model",
+            fillcolor="#1e293b",
+            fontcolor="#f8fafc"
+        ];
+
+        mart [
+            label="marts.mart_zone_revenue\\nBusiness metric: BLOCKED",
+            fillcolor="#7f1d1d",
+            fontcolor="#fee2e2",
+            color="#ef4444"
+        ];
+
+        raw -> staging [
+            label="transforms into"
+        ];
+
+        staging -> mart [
+            label="feeds"
+        ];
+    }
+    """
+
+    st.graphviz_chart(dot, use_container_width=True)
+
+
 def main():
     inject_css()
 
@@ -551,15 +613,27 @@ def main():
 
     with tab3:
         st.markdown('<div class="section-shell">', unsafe_allow_html=True)
+
         section_header(
-            "Downstream blast radius",
-            "Shows which business-facing assets are impacted by degraded upstream data.",
+            "Lineage blast radius",
+            "Shows how degraded upstream data propagates into business-facing metrics.",
         )
+
+        render_lineage_graph()
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        section_header(
+            "Affected downstream assets",
+            "Business-facing assets impacted by degraded upstream data.",
+        )
+
         st.dataframe(
             blast_radius_df,
             use_container_width=True,
             hide_index=True,
         )
+
         st.markdown("</div>", unsafe_allow_html=True)
 
     with tab4:
