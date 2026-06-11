@@ -324,6 +324,14 @@ def incident_briefs():
                 f"({incident.failure_count} failing rows)"
             )
 
+        console.print("\n[bold]Affected Downstream Assets[/bold]")
+        for downstream in brief["downstream_assets"]:
+            console.print(
+                f"- {downstream.child_asset} | "
+                f"{downstream.data_reliability_status or 'N/A'} | "
+                f"{downstream.open_incident_count or 0} open incidents"
+            )
+
         console.print("\n[bold]Recommended Action[/bold]")
         console.print(
             "Investigate critical and high-severity upstream data quality failures before using dependent business metrics."
