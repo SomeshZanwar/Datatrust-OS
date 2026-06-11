@@ -11,6 +11,8 @@ from sqlalchemy import create_engine, text
 
 from src.lineage.blast_radius import analyze_blast_radius
 from src.policy.policy_evaluator import evaluate_policies
+from src.policy.incident_briefs import generate_incident_briefs
+
 
 app = typer.Typer()
 console = Console()
@@ -304,6 +306,28 @@ def evaluate_policy_results():
         )
 
     console.print(table)
+
+@app.command("incident-briefs")
+def incident_briefs():
+    briefs = generate_incident_briefs()
+
+    for brief in briefs:
+        console.print("\n[bold]Governance Incident Brief[/bold]")
+        console.print(f"Asset: {brief['asset_name']}")
+        console.print(f"Trust Score: {brief['trust_score']:.4f} ({brief['trust_label']})")
+        console.print(f"Policy Status: {brief['policy_status']}")
+
+        console.print("\n[bold]Open Issues[/bold]")
+        for incident in brief["incidents"]:
+            console.print(
+                f"- {incident.severity}: {incident.incident_type} "
+                f"({incident.failure_count} failing rows)"
+            )
+
+        console.print("\n[bold]Recommended Action[/bold]")
+        console.print(
+            "Investigate critical and high-severity upstream data quality failures before using dependent business metrics."
+        )
 
 @app.command("run-pipeline")
 def run_pipeline():
