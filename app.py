@@ -423,6 +423,19 @@ def main():
             END;
     """)
 
+    trust_history_df = load_dataframe("""
+        SELECT
+            run_timestamp,
+            asset_name,
+            composite_trust_score,
+            trust_label,
+            tests_passed,
+            tests_failed,
+            tests_total
+        FROM governance.trust_score_runs
+        ORDER BY run_timestamp;
+    """)
+
     latest_trust = trust_df.iloc[0] if not trust_df.empty else None
     summary = summary_df.iloc[0] if not summary_df.empty else None
     policy = policy_df.iloc[0] if not policy_df.empty else None
@@ -568,6 +581,57 @@ def main():
 
         st.plotly_chart(
             fig,
+            use_container_width=True,
+            config={"displayModeBar": False},
+        )
+
+        section_header(
+            "Trust Score History",
+            "Composite trust score trend across governance pipeline runs.",
+        )
+
+        history_fig = px.line(
+            trust_history_df,
+            x="run_timestamp",
+            y="composite_trust_score",
+            markers=True,
+            text="trust_label",
+        )
+
+        history_fig.update_traces(
+            line=dict(color="#f59e0b", width=3),
+            marker=dict(size=9, color="#f8fafc"),
+            textposition="top center",
+            textfont=dict(color="#e2e8f0", size=11),
+        )
+
+        history_fig.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            height=330,
+            margin=dict(l=20, r=20, t=20, b=20),
+            font=dict(color="#e2e8f0"),
+            xaxis_title=None,
+            yaxis_title=None,
+            showlegend=False,
+        )
+
+        history_fig.update_xaxes(
+            showgrid=False,
+            linecolor="rgba(148,163,184,0.25)",
+            tickfont=dict(color="#cbd5e1"),
+        )
+
+        history_fig.update_yaxes(
+            showgrid=True,
+            gridcolor="rgba(148,163,184,0.14)",
+            zeroline=False,
+            tickfont=dict(color="#94a3b8"),
+            range=[0, 1],
+        )
+
+        st.plotly_chart(
+            history_fig,
             use_container_width=True,
             config={"displayModeBar": False},
         )
