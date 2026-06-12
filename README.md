@@ -69,6 +69,11 @@ DataTrust OS currently supports:
 - Rule-generated incident briefs
 - Streamlit governance command center
 - Trust score history visualization
+- Unit-tested policy evaluation logic
+- GitHub Actions CI for Python tests
+- Technical architecture documentation
+- Demo walkthrough documentation
+- Product roadmap documentation
 
 ---
 
@@ -335,6 +340,16 @@ Investigate critical and high-severity upstream data quality failures before usi
 
 ---
 
+## Documentation
+
+Additional documentation is available in the `docs/` folder:
+
+- [`docs/architecture.md`](docs/architecture.md) — technical system architecture and internal design
+- [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md) — step-by-step demo and interview walkthrough
+- [`docs/roadmap.md`](docs/roadmap.md) — planned improvements and future roadmap
+
+---
+
 ## Tech stack
 
 - Python
@@ -347,6 +362,8 @@ Investigate critical and high-severity upstream data quality failures before usi
 - Plotly
 - Graphviz
 - YAML policy configuration
+- pytest
+- GitHub Actions
 - NYC TLC Taxi data
 
 ---
@@ -355,6 +372,9 @@ Investigate critical and high-severity upstream data quality failures before usi
 
 ```text
 datatrust-os/
+├── .github/
+│   └── workflows/
+│       └── python-tests.yml
 ├── app.py
 ├── dbt_project/
 │   ├── macros/
@@ -364,7 +384,10 @@ datatrust-os/
 │   ├── seeds/
 │   └── tests/
 ├── docs/
-│   └── screenshots/
+│   ├── screenshots/
+│   ├── architecture.md
+│   ├── demo_walkthrough.md
+│   └── roadmap.md
 ├── policies/
 ├── sql/
 ├── src/
@@ -373,6 +396,7 @@ datatrust-os/
 │   ├── policy/
 │   └── trust/
 └── tests/
+    └── test_policy_evaluator.py
 ```
 
 ---
@@ -431,6 +455,27 @@ python -m src.cli run-pipeline
 
 ---
 
+## Testing and CI
+
+The project includes unit tests for the policy evaluation layer.
+
+Run tests locally:
+
+```bash
+python -m pytest tests -q
+```
+
+GitHub Actions runs the Python test workflow on pushes and pull requests to `main`.
+
+Current tested behavior includes:
+
+- policy precedence
+- `BLOCKED` overriding `USE_WITH_CAUTION`
+- empty decision handling
+- exact policy rule matching
+
+---
+
 ## Current status
 
 DataTrust OS is currently a local working MVP.
@@ -449,16 +494,24 @@ Completed:
 - YAML policy engine
 - incident briefs
 - Streamlit dashboard
+- dashboard screenshots
+- technical architecture documentation
+- demo walkthrough documentation
+- roadmap documentation
+- policy evaluator unit tests
+- GitHub Actions CI workflow
+- passing Python test badge
 
 Planned next:
 
+- add incident reporter unit tests
+- add blast-radius unit tests
 - support more NYC TLC datasets such as Green Taxi and FHV
-- add richer policy rules
-- add automated incident resolution demos
-- add historical incident trend analysis
+- add richer policy rule operators
+- add automated lineage extraction from dbt artifacts
+- add resolved incident demos
 - improve dashboard deployment readiness
-- add documentation for architecture and demo walkthrough
-- add tests for policy and incident logic
+- add AI-assisted incident summaries grounded in governance metadata
 
 ---
 
@@ -467,3 +520,9 @@ Planned next:
 This project is designed for analytics, data governance, and data reliability use cases.
 
 It demonstrates how a data analyst or analytics engineer can move beyond building dashboards and instead build systems that help teams decide whether metrics are trustworthy enough to use.
+
+The differentiator is the full chain:
+
+```text
+dbt evidence → trust score → incident → lineage impact → policy decision → dashboard explanation
+```
