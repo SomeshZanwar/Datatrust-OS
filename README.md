@@ -1,5 +1,7 @@
 # DataTrust OS
 
+[![Python Tests](https://github.com/SomeshZanwar/Datatrust-OS/actions/workflows/python-tests.yml/badge.svg)](https://github.com/SomeshZanwar/Datatrust-OS/actions/workflows/python-tests.yml)
+
 **DataTrust OS** is a governance-aware analytics reliability system that determines whether a business metric is safe to use before analysts or stakeholders act on it.
 
 The project combines data quality testing, trust scoring, governance incident management, lineage blast-radius analysis, policy evaluation, and a Streamlit command center into one end-to-end workflow.
