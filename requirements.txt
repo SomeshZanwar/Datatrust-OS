@@ -8,10 +8,7 @@ dbt-postgres
 streamlit
 typer
 rich
-anthropic
-great-expectations
-apache-airflow
 pyyaml
 plotly
-sqlalchemy
+graphviz
 pytest
